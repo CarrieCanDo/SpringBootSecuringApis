@@ -23,7 +23,6 @@ This project is a Spring Boot application focused on securing APIs with role-bas
 ### Testing the APIs
 1. To test the secured API endpoints, use Postman or any API testing tool.
 2. Example of testing with Postman:
-    - Set the request method (GET/POST/etc.) and the URL (e.g., `http://localhost:8080/api/resource`).
-    - For secured endpoints, add the necessary authentication headers (Basic Auth or JWT Token).
-    - Send the request and verify the response.
-
+   - Set the request method (GET/POST/etc.) and the URL (e.g., `http://localhost:8080/api/resource`).
+   - For secured endpoints, add the necessary authentication headers (Basic Auth or JWT Token).
+   - Send the request and verify the response.
