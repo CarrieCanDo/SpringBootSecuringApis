@@ -5,6 +5,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @RequestMapping("/api")
@@ -27,5 +28,19 @@ public class AuthController {
         } catch (AuthenticationException e) {
             throw new RuntimeException("Invalid credentials");
         }
+    }
+
+    // Admin-specific endpoint, only accessible by users with the 'ADMIN' role
+    @GetMapping("/admin/task")
+    @PreAuthorize("hasRole('ADMIN')")  // Only ADMIN role can access this method
+    public String adminTask() {
+        return "This is an admin-only task.";
+    }
+
+    // User-specific endpoint, only accessible by users with the 'USER' role
+    @GetMapping("/user/task")
+    @PreAuthorize("hasRole('USER')")  // Only USER role can access this method
+    public String userTask() {
+        return "This is a user task.";
     }
 }
